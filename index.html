@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fast Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="theme-toggle">
+      <button id="theme-btn">🌙</button>
+    </div>
+
+    <div class="app">
+      <!-- Start Screen -->
+      <div id="start-screen" class="screen active">
+        <h1>QuickQuiz</h1>
+        <p>Choose a category</p>
+
+        <div class="category-grid">
+          <button
+            class="category-btn"
+            data-id="9"
+            data-name="General Knowledge"
+          >
+            General Knowledge
+            <span class="best-badge"></span>
+          </button>
+
+          <button class="category-btn" data-id="18" data-name="Computers">
+            Computers
+            <span class="best-badge"></span>
+          </button>
+
+          <button class="category-btn" data-id="17" data-name="Science">
+            Science
+            <span class="best-badge"></span>
+          </button>
+
+          <button class="category-btn" data-id="21" data-name="Sports">
+            Sports
+            <span class="best-badge"></span>
+          </button>
+
+          <button class="category-btn" data-id="23" data-name="History">
+            History
+            <span class="best-badge"></span>
+          </button>
+
+          <button class="category-btn" data-id="22" data-name="Geography">
+            Geography
+            <span class="best-badge"></span>
+          </button>
+        </div>
+
+        <div id="recent-scores-section">
+          <h2 class="section-title">Recent Scores</h2>
+          <div id="recent-scores-list"></div>
+        </div>
+      </div>
+
+      <div id="difficulty-screen" class="screen">
+        <h2 id="difficulty-title">Select Difficulty</h2>
+
+        <button class="difficulty-btn" data-level="easy">
+          <span class="diff-label">Easy</span>
+          <span class="diff-best"></span>
+        </button>
+
+        <button class="difficulty-btn" data-level="medium">
+          <span class="diff-label">Medium</span>
+          <span class="diff-best"></span>
+        </button>
+
+        <button class="difficulty-btn" data-level="hard">
+          <span class="diff-label">Hard</span>
+          <span class="diff-best"></span>
+        </button>
+
+        <button id="back-to-categories" class="back-btn">← Back</button>
+      </div>
+      <div id="loading-screen" class="screen">
+        <div class="loader"></div>
+
+        <h2>Loading Questions...</h2>
+        <p class="loading-sub">Shuffling the trickiest ones for you</p>
+      </div>
+
+      <!-- Quiz Screen -->
+      <div id="quiz-screen" class="screen">
+        <div class="top-bar">
+          <span id="score">Score: 0</span>
+          <div id="timer">10</div>
+        </div>
+
+        <h2 id="question">Question goes here</h2>
+
+        <div id="options"></div>
+
+        <div id="progress-bar">
+          <div id="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Result Screen -->
+      <div id="result-screen" class="screen">
+        <h1>Quiz Complete</h1>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Score</h3>
+            <div class="big-stat" id="final-score"></div>
+          </div>
+
+          <div class="stat-card">
+            <h3>Accuracy</h3>
+            <div class="big-stat" id="accuracy"></div>
+          </div>
+
+          <div class="stat-card">
+            <h3>Average Time</h3>
+            <div class="big-stat" id="avg-time"></div>
+          </div>
+
+          <div class="stat-card">
+            <h3>Best Streak</h3>
+            <div class="big-stat" id="best-streak"></div>
+          </div>
+          <div class="stat-card">
+            <h3>Rank</h3>
+
+            <div id="rank"></div>
+          </div>
+        </div>
+
+        <h2>Question Review</h2>
+
+        <div id="review-container"></div>
+
+        <button id="restart-btn">Play Again</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
